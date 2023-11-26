@@ -31,14 +31,14 @@ public class TestMergeSort {
 		/*generate tempary array*/
 		int[] leftarr=new int[n1];
 		int[] rightarr=new int[n2];
+		
 		for(i=0;i<n1;i++) {
 			leftarr[i]=arr[start+i];
 		}
 		for(i=0;i<n2;i++) {
 			rightarr[i]=arr[mid+1+i];
 		}
-		i=0;
-		j=0;
+		i=j=0;
 		k=start;
 		
 		while(i<n1 && j<n2) {
@@ -62,8 +62,9 @@ public class TestMergeSort {
 			j++;
 			k++;
 		}
-		System.out.println("start :"+start+" end : "+end+" mid :"+mid);
-		System.out.println(Arrays.toString(arr));
+		System.out.println( Arrays.toString(leftarr)+"<-->"+Arrays.toString(rightarr));
+		//System.out.println("start :"+start+" end : "+end+" mid :"+mid);
+		//System.out.println(Arrays.toString(arr));
 		
 	}
 
