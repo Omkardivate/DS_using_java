@@ -15,12 +15,18 @@ public class CircularLinkedList {
 	}
 	public void addnodeByPosition(int pos,int value){
 		Node newnode=new Node(value);
-		//if linked list is empty
-		if(head==null) {
+		//if linked list is empty and pos is other than 1
+		if(head==null && pos!=1){
+			System.out.println("wrong position");
+		}
+		//if linked list is empty and pos is 1
+		if(head==null && pos==1){
 			head=newnode;
 			newnode.next=head;
-		}else {
-			//if linked list is not empty, and add at the begining
+		}
+		//if linked list is not empty
+		else {
+			//add at the begining if pos is 1
 			if(pos==1) {
 				Node temp=head;
 				while(temp.next!=head) {
@@ -36,7 +42,18 @@ public class CircularLinkedList {
 				for(i=1;temp.next!=head && i<=pos-2;i++) {
 					temp=temp.next;
 				}
-				//if(i>=pos-1)
+				if(temp.next== head && i!=pos-2){
+					System.out.println("wrong position");
+				}
+				else if(temp.next== head && i==pos-2){
+					temp.next=newnode;
+					newnode.next=head;
+				}
+				else{
+					newnode.next= temp.next;
+					temp.next=newnode;
+				}
+				//if(i>=pos-1)  mam got error here we solved it above
 					newnode.next=temp.next;
 					temp.next=newnode;
 				//}
